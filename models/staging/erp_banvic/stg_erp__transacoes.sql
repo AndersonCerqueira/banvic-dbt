@@ -13,8 +13,8 @@ with
             , cast(data_transacao as timestamp) ts_transacao
             , nome_transacao
             , case 
-                when valor_transacao > 0 then 'Crédito'
-                when valor_transacao < 0 then 'Débito'
+                when cast(valor_transacao as numeric(32,2)) > 0 then 'Crédito'
+                when cast(valor_transacao as numeric(32,2)) < 0 then 'Débito'
                 else null 
             end as tipo_transacao
             , cast(valor_transacao as numeric(28,2)) as valor_transacao
